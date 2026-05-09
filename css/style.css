@@ -100,3 +100,48 @@ body.dark-mode .text-muted {
 body.dark-mode .skill-card {
     background-color: var(--dark-card);
 }
+.profile-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px -5px #0d6efd;
+    }
+    to {
+        box-shadow: 0 0 30px 5px #0d6efd;
+    }
+}
+/* Sembunyikan kursor asli (Opsional) */
+/* body { cursor: none; } */
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+}
+/* Animasi Blob Modern */
+.blob {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #0d6efd 0%, #6610f2 100%);
+  filter: blur(40px);
+  position: absolute;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: moveBlob 10s infinite alternate;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+@keyframes moveBlob {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: translate(0, 0) scale(1); }
+  100% { border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%; transform: translate(50px, 100px) scale(1.2); }
+}
+

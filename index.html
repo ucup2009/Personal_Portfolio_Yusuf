@@ -208,5 +208,44 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+    // Implementasi Typing Effect
+    var typed = new Typed('.text-primary', {
+        strings: ['Web Developer', 'UI/UX Designer', 'Fullstack Developer'],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#0d6efd" }, // Warna primary kamu
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5 },
+            "size": { "value": 3 },
+            "line_linked": { "enable": true, "distance": 150, "color": "#0d6efd", "opacity": 0.4, "width": 1 },
+            "move": { "enable": true, "speed": 6 }
+        },
+        "interactivity": {
+            "events": { "onhover": { "enable": true, "mode": "repulse" } }
+        }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script>
+    // Inisialisasi Tilt untuk kartu project
+    VanillaTilt.init(document.querySelectorAll(".project-card"), {
+        max: 15,    // Kemiringan maksimal
+        speed: 400, // Kecepatan transisi
+        glare: true, // Memberikan efek kilauan cahaya
+        "max-glare": 0.3,
+    });
+</script>
+
 </body>
 </html>
