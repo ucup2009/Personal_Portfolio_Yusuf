@@ -94,3 +94,38 @@ window.addEventListener("mousemove", (e) => {
     dot.style.left = e.clientX + "px";
     dot.style.top = e.clientY + "px";
 });
+
+document.getElementById('btnLoadMore').addEventListener('click', function() {
+    // Mengambil semua item proyek yang memiliki kelas 'd-none'
+    const hiddenProjects = document.querySelectorAll('#projectContainer .project-item.d-none');
+    const button = this;
+
+    if (hiddenProjects.length > 0) {
+        // Buka / Tampilkan semua proyek yang tersembunyi
+        hiddenProjects.forEach(function(project) {
+            project.classList.remove('d-none');
+            // Memicu ulang efek AOS agar animasi berjalan saat elemen muncul
+            AOS.refresh(); 
+        });
+        
+        // Mengubah teks tombol dan ikon menjadi 'Sembunyikan'
+        button.innerHTML = 'Sembunyikan Proyek <i class="bi bi-chevron-up ms-2"></i>';
+        button.classList.replace('btn-primary', 'btn-outline-primary');
+    } else {
+        // Jika diklik lagi saat semua proyek terbuka, sembunyikan kembali dari indeks ke-3 dst.
+        const allProjects = document.querySelectorAll('#projectContainer .project-item');
+        
+        allProjects.forEach(function(project, index) {
+            if (index >= 3) { // Angka 3 berarti menyisakan 3 proyek pertama tetap tampil
+                project.classList.add('d-none');
+            }
+        });
+        
+        // Kembalikan teks tombol semula
+        button.innerHTML = 'Tampilkan Lebih Banyak <i class="bi bi-chevron-down ms-2"></i>';
+        button.classList.replace('btn-outline-primary', 'btn-primary');
+        
+        // Scroll otomatis kembali ke atas section project secara mulus
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+    }
+});
